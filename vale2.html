@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Aakanksha ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #4a0000 0%, #8e0000 50%, #b71c1c 100%);
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+            text-align: center;
+            color: white;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            position: relative;
+            z-index: 10;
+        }
+
+        #openBtn {
+            background: #ffffff;
+            color: #8e0000;
+            border: none;
+            padding: 20px 50px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+            transition: 0.4s;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(255, 255, 255, 0.5); }
+            100% { transform: scale(1); }
+        }
+
+        .message-box {
+            display: none;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInDeep 1.8s ease-out;
+            max-width: 450px;
+            width: 85%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        h1 { font-size: 1.6rem; color: #ffeb3b; margin-bottom: 5px; }
+        
+        .shayari {
+            font-size: 1.15rem;
+            color: #ffcdd2;
+            line-height: 1.8;
+            margin: 25px 0;
+            font-weight: bold;
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .romantic-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            text-align: center;
+            margin: 15px 0;
+            font-style: normal;
+            color: #ffebee;
+            opacity: 0.9;
+        }
+
+        @keyframes fadeInDeep {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .valentine-img {
+            width: 100%;
+            max-width: 260px;
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,0.8);
+            margin: 10px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .floating {
+            position: absolute;
+            bottom: -50px;
+            animation: floatUp var(--duration) linear forwards;
+            z-index: 1;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.7; }
+            100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="container">
+        <button id="openBtn" onclick="revealValentine()">For My Aakanksha 💌</button>
+
+        <div class="message-box" id="valentineMessage">
+            <h1>Aakanksha ❤️</h1>
+            
+            <div class="shayari">
+                Tumhari muskurahat se milti hai dil ko raahat,<br>
+                Tumse hi judi hai meri har ek chaahat.<br>
+                Khuda se maangi har dua ka asar ho tum,<br>
+                Mere safar ki sabse haseen manzil ho tum. 🌹
+            </div>
+
+            <p class="romantic-text">
+                Aakanksha, your presence is a light that transforms my entire world. Your beauty isn't just in your smile, but in the peace you bring to my heart. You are my sanctuary, a sweet melody that calms every storm and turns ordinary moments into memories I’ll cherish forever. You possess a soul so radiant that it outshines the brightest stars. Being by your side feels like finding the missing piece of my life. You are my greatest blessing, my silent strength, and my forever home. I love you beyond words, today and always.
+            </p>
+            
+            <img src="attachments/DYHu7CSsiddBMpG4KoPAz.jpeg" alt="Our Memory" class="valentine-img">
+            
+            <br>
+            <button onclick="sharePage()" style="background: transparent; color: white; border: 1px solid white; font-size: 13px; padding: 8px 18px; margin-top: 10px; cursor: pointer; border-radius: 20px;">Share Our Love 💕</button>
+        </div>
+    </div>
+
+    <script>
+        function revealValentine() {
+            const music = document.getElementById("bgMusic");
+            music.volume = 0.4;
+            music.play();
+
+            document.getElementById("openBtn").style.display = "none";
+            document.getElementById("valentineMessage").style.display = "block";
+            
+            setInterval(createFloatingElement, 300);
+        }
+
+        function createFloatingElement() {
+            const symbols = ["❤️","🌹","💖","✨"];
+            const span = document.createElement("span");
+            const duration = Math.random() * 5 + 5;
+            
+            span.className = "floating";
+            span.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+            span.style.left = Math.random() * 100 + "vw";
+            span.style.fontSize = (Math.random() * 15 + 15) + "px";
+            span.style.setProperty('--duration', duration + "s");
+            
+            document.body.appendChild(span);
+            setTimeout(() => span.remove(), duration * 1000);
+        }
+
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: "For Aakanksha ❤️",
+                    text: "I made this for you, Aakanksha!",
+                    url: window.location.href
+                });
+            } else {
+                alert("Link copied: " + window.location.href);
+            }
+        }
+    </script>
+</body>
+</html>
